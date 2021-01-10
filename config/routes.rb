@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  root 'home#index'
 
-  get 'home/index'
+  resources :groupbuys
+
+  devise_for :users, path: 'auth'
 end
