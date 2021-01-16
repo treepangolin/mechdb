@@ -10,20 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_072724) do
+ActiveRecord::Schema.define(version: 2021_01_15_040113) do
 
-  create_table "group_buys", force: :cascade do |t|
+  create_table "groupbuys", force: :cascade do |t|
     t.string "name"
+    t.integer "category"
     t.date "start"
     t.date "end"
-    t.string "type"
+    t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "groupbuys", force: :cascade do |t|
+  create_table "proxy_links", force: :cascade do |t|
+    t.string "name"
+    t.integer "region"
+    t.text "link"
+    t.integer "groupbuy_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["groupbuy_id"], name: "index_proxy_links_on_groupbuy_id"
   end
 
   create_table "users", force: :cascade do |t|

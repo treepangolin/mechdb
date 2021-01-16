@@ -1,0 +1,40 @@
+<div class="card text-white bg-dark my-3" style="width: 18rem;">
+  <%= image_tag groupbuy.image, class: 'card-img-top' %>
+  
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h4><%= groupbuy.name %></h4>
+    <small class="badge rounded-pill bg-secondary"><%= distance_of_time_in_words Time.now, groupbuy.end %> left</small>
+  </div>
+
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="d-flex align-items-center justify-content-between">
+        <span class="badge bg-secondary">Type</span>
+        <%= groupbuy.category.titleize %>
+      </li>
+      <li class="d-flex align-items-center justify-content-between">
+        <span class="badge bg-secondary">Start</span>
+        <%= groupbuy.start %>
+      </li>
+      <li class="d-flex align-items-center justify-content-between">
+        <span class="badge bg-secondary">End</span>
+        <%= groupbuy.end %>
+      </li>
+    </ul>
+    <div class="dropdown d-grid mt-2 align-items-center">
+      <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="proxyLinkDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Links
+      </button>
+      <ul class="dropdown-menu" aria-labelldby="proxyLinkDropdownButton">
+        <% if groupbuy.proxy_links.any? %>
+          <% groupbuy.proxy_links.each do |proxy| %>
+            <li><%= link_to proxy.name, proxy.link, class: 'dropdown-item', target: '_blank' %></li>
+          <% end %>
+          <div class="dropdown-divider"></div>
+        <% end %>
+        <li><%= link_to icon('pencil') + ' Edit', edit_groupbuy_path(groupbuy), class: 'dropdown-item' %></li>
+        <li><%= link_to icon('trash2-fill') + ' Delete', groupbuy_path(groupbuy), method: :delete, data: { confirm: "Are you sure?" }, class: 'dropdown-item' %></li>
+      </ul>
+    </div>
+  </div>
+</div>

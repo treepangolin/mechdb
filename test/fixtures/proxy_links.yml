@@ -2,14 +2,10 @@
 
 one:
   name: MyString
-  type: 1
-  start: 2021-01-14
-  end: 2021-01-14
-  image: MyText
+  region: 1
+  link: MyText
 
 two:
   name: MyString
-  type: 1
-  start: 2021-01-14
-  end: 2021-01-14
-  image: MyText
+  region: 1
+  link: MyText

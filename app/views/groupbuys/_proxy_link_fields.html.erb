@@ -1,0 +1,25 @@
+<%= content_tag :div, class: 'row align-items-center my-3', id: 'nested-fields', data: { new_record: form.object.new_record? } do %>
+  <div class="col-auto">
+    <%= form.label :name, class: 'col-form-label' %>
+  </div>
+  <div class="col-auto">
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="col-auto">
+    <%= form.label :region, class: 'col-form-label' %>
+  </div>
+  <div class="col-auto">
+    <%= form.select :region, ProxyLink.regions.keys.map {|region| [region.humanize.titleize, region]}, {}, { :class => 'form-select' } %>
+  </div>
+  <div class="col-auto">
+    <%= form.label :link, class: 'col-form-label' %>
+  </div>
+  <div class="col-auto">
+    <%= form.url_field :link, class: 'form-control' %>
+  </div>
+  <div class="col-auto">
+    <%= link_to 'Delete', '#', class: 'btn btn-sm btn-danger', data: { action: 'click->nested-form#remove_association' } %>
+  </div>
+
+  <%= form.hidden_field :_destroy %>
+<% end %>
