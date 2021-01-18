@@ -1,6 +1,8 @@
 <div class="d-flex justify-content-between align-items-center">
   <h1><span class="live">Live</span> Group Buys</h1>
-  <%= link_to 'Add New', new_groupbuy_path, class: 'btn btn-secondary' %>
+  <% if can? :manage, Groupbuy %>
+    <%= link_to 'Add New', new_groupbuy_path, class: 'btn btn-secondary' %>
+  <% end %>
 </div>
 <div class="d-flex justify-content-evenly flex-wrap">
   <%= render @groupbuys %>

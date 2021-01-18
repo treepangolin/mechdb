@@ -35,10 +35,12 @@
               </a>
             </li>
           <% end %>
-          <div class="dropdown-divider"></div>
+          <% if can? :manage, groupbuy %>
+            <div class="dropdown-divider"></div>
+            <li><%= link_to icon('pencil') + ' Edit', edit_groupbuy_path(groupbuy), class: 'dropdown-item' %></li>
+            <li><%= link_to icon('trash2-fill') + ' Delete', groupbuy_path(groupbuy), method: :delete, data: { confirm: "Are you sure?" }, class: 'dropdown-item' %></li>
+          <% end %>
         <% end %>
-        <li><%= link_to icon('pencil') + ' Edit', edit_groupbuy_path(groupbuy), class: 'dropdown-item' %></li>
-        <li><%= link_to icon('trash2-fill') + ' Delete', groupbuy_path(groupbuy), method: :delete, data: { confirm: "Are you sure?" }, class: 'dropdown-item' %></li>
       </ul>
     </div>
   </div>
