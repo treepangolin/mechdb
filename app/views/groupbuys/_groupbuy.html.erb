@@ -1,9 +1,9 @@
-<div class="card text-white bg-dark my-3" style="width: 18rem;">
+<div class="card text-white bg-dark my-3" style="width: 20rem;">
   <%= image_tag groupbuy.image, class: 'card-img-top' %>
   
-  <div class="card-header d-flex justify-content-between align-items-center">
+  <div class="card-header">
     <h4><%= groupbuy.name %></h4>
-    <small class="badge rounded-pill bg-secondary"><%= distance_of_time_in_words Time.now, groupbuy.end %> left</small>
+    <h6 class="card-subtitle text-muted"><%= groupbuy.end_distance %></h6>
   </div>
 
   <div class="card-body">
@@ -25,10 +25,15 @@
       <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="proxyLinkDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
         Links
       </button>
-      <ul class="dropdown-menu" aria-labelldby="proxyLinkDropdownButton">
+      <ul class="dropdown-menu w-100" aria-labelldby="proxyLinkDropdownButton">
         <% if groupbuy.proxy_links.any? %>
           <% groupbuy.proxy_links.each do |proxy| %>
-            <li><%= link_to proxy.name, proxy.link, class: 'dropdown-item', target: '_blank' %></li>
+            <li>
+              <a href="<%= proxy.link %>" class="dropdown-item d-flex justify-content-between" target="_blank">
+                <span class="badge bg-secondary"><%= proxy.region %></span>
+                <%= proxy.name %>
+              </a>
+            </li>
           <% end %>
           <div class="dropdown-divider"></div>
         <% end %>

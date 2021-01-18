@@ -1,6 +1,6 @@
 class GroupbuysController < ApplicationController
   def index
-    @groupbuys = Groupbuy.where("end > ?", Time.now)
+    @groupbuys = Groupbuy.all
   end
 
   def new
