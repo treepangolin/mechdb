@@ -9,7 +9,7 @@
     <%= form.label :region, class: 'col-form-label' %>
   </div>
   <div class="col-auto">
-    <%= form.select :region, ProxyLink.regions.keys.map {|region| [region.humanize.titleize, region]}, {}, { :class => 'form-select' } %>
+    <%= form.text_field :region, class: 'form-control' %>
   </div>
   <div class="col-auto">
     <%= form.label :link, class: 'col-form-label' %>

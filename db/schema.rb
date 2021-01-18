@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_040113) do
 
   create_table "proxy_links", force: :cascade do |t|
     t.string "name"
-    t.integer "region"
+    t.string "region"
     t.text "link"
     t.integer "groupbuy_id"
     t.datetime "created_at", precision: 6, null: false
