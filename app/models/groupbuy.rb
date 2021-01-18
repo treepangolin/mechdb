@@ -9,7 +9,11 @@ class Groupbuy < ApplicationRecord
 
   def end_distance
     endDate = self[:end]
-    if Time.now < endDate
+    startDate = self[:start]
+
+    if startDate > Time.now
+      "starts in #{distance_of_time_in_words Time.now, startDate}"
+    elsif Time.now < endDate
       "ends in #{distance_of_time_in_words Time.now, endDate}"
     else
       "ended #{distance_of_time_in_words Time.now, endDate} ago"
