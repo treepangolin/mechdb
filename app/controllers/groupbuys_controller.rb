@@ -5,6 +5,10 @@ class GroupbuysController < ApplicationController
     @groupbuys = Groupbuy.all
   end
 
+  def show
+    @groupbuy = Groupbuy.find(params[:id])
+  end
+
   def new
     @groupbuy = Groupbuy.new
     @groupbuy.proxy_links.new
