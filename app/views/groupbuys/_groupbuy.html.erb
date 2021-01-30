@@ -36,7 +36,7 @@
             <% groupbuy.proxy_links.each do |proxy| %>
               <li>
                 <%= link_to proxy.link, class: 'dropdown-item d-flex justify-content-between', target: '_blank' do %>
-                  <span class="badge bg-secondary"><%= proxy.region %></span>
+                  <span class="badge bg-primary"><%= proxy.region %></span>
                   <%= proxy.name %>
                 <% end %>
               </li>
