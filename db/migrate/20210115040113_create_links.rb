@@ -4,7 +4,7 @@ class CreateLinks < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :descriptor
       t.text :link
-      t.belongs_to :groupbuy
+      t.references :linkable, polymorphic: true
 
       t.timestamps
     end

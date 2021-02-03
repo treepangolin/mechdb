@@ -4,7 +4,7 @@ include ActionView::Helpers::DateHelper
 class Groupbuy < ApplicationRecord
   enum category: [:keycaps, :keyboard, :macropad, :keyswitches]
 
-  has_many :links, inverse_of: :groupbuy
+  has_many :links, as: :linkable
   accepts_nested_attributes_for :links, reject_if: :all_blank, allow_destroy: true
 
   def end_distance

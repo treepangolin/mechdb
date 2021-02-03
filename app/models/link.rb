@@ -1,3 +1,3 @@
 class Link < ApplicationRecord
-  belongs_to :groupbuy, optional: true
+  belongs_to :linkable, polymorphic: true, optional: true
 end

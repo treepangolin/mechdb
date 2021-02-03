@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 2021_02_03_192734) do
     t.string "name"
     t.string "descriptor"
     t.text "link"
-    t.bigint "groupbuy_id"
+    t.string "linkable_type"
+    t.bigint "linkable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["groupbuy_id"], name: "index_links_on_groupbuy_id"
+    t.index ["linkable_type", "linkable_id"], name: "index_links_on_linkable"
   end
 
   create_table "users", force: :cascade do |t|
