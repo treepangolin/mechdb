@@ -20,7 +20,7 @@
               <li class="navbar-item dropdown">
                 <a href="" class="nav-link dropdown-toggle" id="navbarUserDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <% if user_signed_in? %>
-                    <%= icon('person-fill') %>
+                    <%= current_user.admin? ? icon('shield-fill', class: 'admin') : icon('person-fill') %>
                     <%= current_user.email %>
                   <% else %>
                     <%= icon('person') %>
