@@ -5,7 +5,7 @@ class Ability
 
   def initialize(user)
     if user.present?
-      if user.is_admin?
+      if user.admin?
         can :manage, Groupbuy
       end
     end

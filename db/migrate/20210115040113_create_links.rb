@@ -1,8 +1,8 @@
-class CreateProxyLinks < ActiveRecord::Migration[6.1]
+class CreateLinks < ActiveRecord::Migration[6.1]
   def change
-    create_table :proxy_links do |t|
+    create_table :links do |t|
       t.string :name
-      t.string :region
+      t.string :descriptor
       t.text :link
       t.belongs_to :groupbuy
 
