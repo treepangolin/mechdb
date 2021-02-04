@@ -11,16 +11,19 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav nav-pills me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <%= link_to 'Group Buys', groupbuys_path, class: nav_helper(groupbuys_path) %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Keyswitches', keyswitches_path, class: nav_helper(keyswitches_path) %>
               </li>
             </ul>
             <ul class="navbar-nav">
               <li class="navbar-item dropdown">
                 <a href="" class="nav-link dropdown-toggle" id="navbarUserDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <% if user_signed_in? %>
-                    <%= icon('person-fill') %>
+                    <%= current_user.admin? ? icon('shield-fill', class: 'admin') : icon('person-fill') %>
                     <%= current_user.email %>
                   <% else %>
                     <%= icon('person') %>
