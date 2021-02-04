@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_192734) do
+ActiveRecord::Schema.define(version: 2021_02_03_214431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2021_02_03_192734) do
     t.date "start"
     t.date "end"
     t.text "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "keyswitches", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.text "description"
+    t.integer "travel_type"
+    t.string "weight"
+    t.string "travel"
+    t.string "manufacturer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

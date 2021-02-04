@@ -1,0 +1,39 @@
+<div class="card text-white bg-dark my-3" style="width: 20rem">
+  <%= image_tag keyswitch.image, class: 'card-img-top' %>
+
+  <div class="card-body">
+    <h4 class="card-title mono"><%= keyswitch.name %></h4>
+    <h6 class="card-subtitle text-muted"><%= keyswitch.travel_type.titleize %></h6>
+
+    <p class="card-text"><%= keyswitch.description %></p>
+
+    <div class="dropdown d-grid mt-3">
+      <div class="btn-group">
+        <%= link_to keyswitch, class: 'btn btn-outline-primary w-100' do %>
+          <%= icon('eye-fill') %> View
+        <% end %>
+        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" id="linkDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-dark w-100" aria-labelldby="linkDropdownButton">
+          <% if keyswitch.links.any? %>
+            <% keyswitch.links.each do |link| %>
+              <li>
+                <%= link_to link.link, class: 'dropdown-item d-flex justify-content-between', target: '_blank' do %>
+                  <span class="badge bg-primary"><%= link.descriptor %></span>
+                  <%= link.name %>
+                <% end %>
+              </li>
+            <% end %>
+          <% end %>
+          <% if can? :manage, keyswitch %>
+            <div class="dropdown-divider"></div>
+            <li><%= link_to icon('pencil') + ' Edit', edit_keyswitch_path(keyswitch), class: 'dropdown-item' %></li>
+            <li><%= link_to icon('trash2-fill') + ' Delete', keyswitch_path(keyswitch), method: :delete, data: { confirm: "Are you sure?" }, class: 'dropdown-item' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
