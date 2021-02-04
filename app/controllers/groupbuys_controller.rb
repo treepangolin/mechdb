@@ -11,7 +11,7 @@ class GroupbuysController < ApplicationController
 
   def new
     @groupbuy = Groupbuy.new
-    @groupbuy.proxy_links.new
+    @groupbuy.links.new
   end
 
   def create
@@ -47,6 +47,6 @@ class GroupbuysController < ApplicationController
 
   private
     def groupbuy_params
-      params.require(:groupbuy).permit(:name, :category, :start, :end, :image, proxy_links_attributes: [:id, :name, :region, :link, :_destroy])
+      params.require(:groupbuy).permit(:name, :category, :start, :end, :image, links_attributes: [:id, :name, :descriptor, :link, :_destroy])
     end
 end

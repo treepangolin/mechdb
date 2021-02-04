@@ -39,13 +39,13 @@
     <div class="col-sm-10">
       <div data-controller="nested-form">
         <template data-nested-form-target="template">
-          <%= form.fields_for :proxy_links, ProxyLink.new, child_index: 'NEW_RECORD' do |link| %>
-            <%= render 'proxy_link_fields', form: link %>
+          <%= form.fields_for :links, Link.new, child_index: 'NEW_RECORD' do |link| %>
+            <%= render 'link_fields', form: link %>
           <% end %>
         </template>
 
-        <%= form.fields_for :proxy_links do |link| %>
-          <%= render 'proxy_link_fields', form: link %>
+        <%= form.fields_for :links do |link| %>
+          <%= render 'link_fields', form: link %>
         <% end %>
 
         <div class="my-3" data-nested-form-target="links">

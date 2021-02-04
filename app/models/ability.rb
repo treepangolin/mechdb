@@ -5,8 +5,9 @@ class Ability
 
   def initialize(user)
     if user.present?
-      if user.is_admin?
+      if user.admin?
         can :manage, Groupbuy
+        can :manage, Keyswitch
       end
     end
     can :read, :all

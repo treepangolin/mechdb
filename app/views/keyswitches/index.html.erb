@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h1 class="mono">Keyswitches</h1>
+  <% if can? :manage, Keyswitch %>
+    <%= link_to 'Add New', new_keyswitch_path, class: 'btn btn-primary' %>
+  <% end %>
+</div>
+<div class="d-flex justify-content-evenly flex-wrap">
+  <%= render @keyswitches %>
+</div>

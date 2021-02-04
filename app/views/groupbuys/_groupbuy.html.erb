@@ -27,17 +27,17 @@
         <%= link_to groupbuy, class: 'btn btn-outline-primary w-100' do %>
           <%= icon('eye-fill') %> View
         <% end %>
-        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" id="proxyLinkDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" id="linkDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
           <span class="visually-hidden">Toggle Dropdown</span>
         </button>
 
-        <ul class="dropdown-menu dropdown-menu-dark w-100" aria-labelldby="proxyLinkDropdownButton">
-          <% if groupbuy.proxy_links.any? %>
-            <% groupbuy.proxy_links.each do |proxy| %>
+        <ul class="dropdown-menu dropdown-menu-dark w-100" aria-labelldby="linkDropdownButton">
+          <% if groupbuy.links.any? %>
+            <% groupbuy.links.each do |link| %>
               <li>
-                <%= link_to proxy.link, class: 'dropdown-item d-flex justify-content-between', target: '_blank' do %>
-                  <span class="badge bg-primary"><%= proxy.region %></span>
-                  <%= proxy.name %>
+                <%= link_to link.link, class: 'dropdown-item d-flex justify-content-between', target: '_blank' do %>
+                  <span class="badge bg-primary"><%= link.descriptor %></span>
+                  <%= link.name %>
                 <% end %>
               </li>
             <% end %>

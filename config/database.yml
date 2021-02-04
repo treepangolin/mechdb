@@ -17,8 +17,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: mechdb
-  password: <%= ENV['MECHDB_DATABASE_PASSWORD'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -27,6 +25,8 @@ development:
   <<: *default
   host: localhost
   database: mechdb_development
+  username: <%= Rails.application.credentials.dig(:development, :db_username) %>
+  password: <%= Rails.application.credentials.dig(:development, :db_password) %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -62,6 +62,8 @@ test:
   <<: *default
   host: localhost
   database: mechdb_test
+  username: <%= Rails.application.credentials.dig(:development, :db_username) %>
+  password: <%= Rails.application.credentials.dig(:development, :db_password) %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -86,3 +88,5 @@ test:
 production:
   <<: *default
   database: mechdb_production
+  username: mechdb
+  password: <%= ENV['MECHDB_DATABASE_PASSWORD'] %>

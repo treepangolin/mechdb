@@ -1,0 +1,73 @@
+<%= form_with model: @keyswitch do |form| %>
+  <div class="row mb-3">
+    <%= form.label :name, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10 col-lg-4">
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <%= form.label :description, 'Description', class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10 col-lg-4">
+      <%= form.text_area :description, rows: 5, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <%= form.label :image, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10 col-lg-4">
+      <%= form.url_field :image, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <%= form.label :travel_type, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10 col-lg-4">
+      <%= form.select :travel_type, Keyswitch.travel_types.keys.map {|travel_type| [travel_type.titleize, travel_type]}, {}, { :class => 'form-select' } %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <%= form.label :weight, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10 col-lg-4">
+      <%= form.text_field :weight, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <%= form.label :travel, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10 col-lg-4">
+      <%= form.text_field :travel, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <%= form.label :manufacturer, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10 col-lg-4">
+      <%= form.text_field :manufacturer, class: 'form-control' %>
+    </div>
+  </div>
+
+  <fieldset class="row mb-3 align-items-center">
+    <legend class="col-form-label col-sm-2 pt-0">Links</legend>
+    <div class="col-sm-10">
+      <div data-controller="nested-form">
+        <template data-nested-form-target="template">
+          <%= form.fields_for :links, Link.new, child_index: 'NEW_RECORD' do |link| %>
+            <%= render 'link_fields', form: link %>
+          <% end %>
+        </template>
+
+        <%= form.fields_for :links do |link| %>
+          <%= render 'link_fields', form: link %>
+        <% end %>
+
+        <div class="my-3" data-nested-form-target="links">
+          <%= link_to 'Add Link', '#', class: 'btn btn-primary', data: { action: 'click->nested-form#add_association' } %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <%= form.submit :class => 'btn btn-primary' %>
+<% end %>
