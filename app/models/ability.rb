@@ -7,7 +7,6 @@ class Ability
     if user.present?
       if user.admin?
         can :manage, Groupbuy
-        can :manage, Keyswitch
       end
     end
     can :read, :all
