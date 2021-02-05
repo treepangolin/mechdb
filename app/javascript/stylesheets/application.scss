@@ -8,6 +8,10 @@ body {
   color: #fff;
 }
 
+.form-floating > label {
+  color: initial;
+}
+
 .mono {
   font-family: 'IBM Plex Mono', 'Monaco', 'Consolas', monospace;
   font-weight: 300;
