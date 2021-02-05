@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;700&display=swap');
 
 $primary: rgb(106, 90, 205);
-@import "~bootstrap/scss/bootstrap.scss";
+@import "bootstrap";
 
 body {
   background: rgb(13, 17, 23);
   color: #fff;
 }
 
-.form-floating > label {
+.form-floating > label, .toast {
   color: initial;
 }
 
