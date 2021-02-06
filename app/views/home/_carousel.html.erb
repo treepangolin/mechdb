@@ -1,3 +1,5 @@
+<% if !@featured_groupbuys.empty? %>
+
 <div class="carousel slide" data-bs-ride="carousel" id="featuredGroupbuys">
   <ol class="carousel-indicators">
     <% @featured_groupbuys.each_with_index do |groupbuy, index| %>
@@ -29,3 +31,5 @@
     <span class="visually-hidden">Next</span>
   </a>
 </div>
+
+<% end %>
