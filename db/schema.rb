@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_05_194158) do
+ActiveRecord::Schema.define(version: 2021_02_06_003417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_02_05_194158) do
   create_table "groupbuys", force: :cascade do |t|
     t.string "name"
     t.integer "category"
-    t.date "start"
-    t.date "end"
+    t.date "start_date"
+    t.date "end_date"
     t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

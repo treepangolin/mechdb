@@ -8,8 +8,8 @@ class Groupbuy < ApplicationRecord
   accepts_nested_attributes_for :links, reject_if: :all_blank, allow_destroy: true
 
   def end_distance
-    endDate = self[:end]
-    startDate = self[:start]
+    endDate = self[:end_date]
+    startDate = self[:start_date]
 
     if startDate > Date.today
       "starts in #{distance_of_time_in_words Date.today, startDate}"
