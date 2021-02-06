@@ -1,0 +1,29 @@
+<div class="carousel carousel-dark slide w-75 h-75" data-bs-ride="carousel" id="featuredGroupbuys">
+  <ol class="carousel-indicators">
+    <% @featured_groupbuys.each_with_index do |groupbuy, index| %>
+      <li data-bs-target="#featuredGroupbuys" data-bs-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+    <% end %>
+  </ol>
+
+  <div class="carousel-inner">
+    <% @featured_groupbuys.each_with_index do |groupbuy, index| %>
+      <div class="carousel-item rounded <%= index == 0 ? 'active' : '' %>">
+        <%= image_tag groupbuy.image, class: 'rounded d-block img-fluid' %>
+        <div class="carousel-caption mono d-none d-md-block">
+          <h5><%= groupbuy.name %></h5>
+          <p><%= groupbuy.end_distance %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <a href="#featuredGroupbuys" class="carousel-control-prev" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+
+  <a class="carousel-control-next" href="#featuredGroupbuys" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
