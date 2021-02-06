@@ -32,6 +32,22 @@ development:
 4. Initialize your database by doing `rails db:create`
 5. Migrate the schema with `rails db:migrate`
 
+## Obtaining an Administrative Account
+
+Currently, the app is read-only when you are signed in as a User with the `default` role.
+You can obtain full privileges by setting an account to the `admin` role.
+
+1. Create an account like normal (maybe don't use your real info, but I won't stop you)
+2. Run `rails console` in the app's root directory
+3. *Assuming you are the only User in the database,* run `User.first.admin!` in the interpreter
+4. Verify your account has the `admin` role:
+```ruby
+User.first.admin?
+=> true
+```
+
+You will also have a green shield beside your name when signed in.
+
 ## Tests
 
 Whoops.
