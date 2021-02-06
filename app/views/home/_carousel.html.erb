@@ -1,4 +1,4 @@
-<div class="carousel carousel-dark slide w-75 h-75" data-bs-ride="carousel" id="featuredGroupbuys">
+<div class="carousel slide" data-bs-ride="carousel" id="featuredGroupbuys">
   <ol class="carousel-indicators">
     <% @featured_groupbuys.each_with_index do |groupbuy, index| %>
       <li data-bs-target="#featuredGroupbuys" data-bs-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
@@ -8,11 +8,13 @@
   <div class="carousel-inner">
     <% @featured_groupbuys.each_with_index do |groupbuy, index| %>
       <div class="carousel-item rounded <%= index == 0 ? 'active' : '' %>">
-        <%= image_tag groupbuy.image, class: 'rounded d-block img-fluid' %>
-        <div class="carousel-caption mono d-none d-md-block">
-          <h5><%= groupbuy.name %></h5>
-          <p><%= groupbuy.end_distance %></p>
-        </div>
+        <%= image_tag groupbuy.image, class: 'rounded d-block w-100' %>
+        <%= link_to groupbuy, class: 'stretched-link' do %>
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="mono bold"><%= groupbuy.name %></h1>
+            <p class="mono"><%= groupbuy.end_distance %></p>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

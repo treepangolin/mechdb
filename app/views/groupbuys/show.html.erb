@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h1 class="mono bold"><%= @groupbuy.name %></h1>
+  <h1 class="mono display"><%= @groupbuy.name.downcase %></h1>
   <h4 class="text-muted mb-3"><%= @groupbuy.end_distance %></h4>
 </div>
 
@@ -31,7 +31,7 @@
         <% @groupbuy.links.each do |link| %>
           <div class="d-flex justify-content-between align-items-center">
             <h4><%= link.descriptor %></h4>
-            <%= link_to link.name, link.link, target: '_blank', class: 'badge bg-primary' %>
+            <%= link_to link.name, link.link, target: '_blank', class: 'nav-link p-0' %>
           </div>
         <% end %>
       </div>

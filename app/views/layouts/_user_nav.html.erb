@@ -3,7 +3,7 @@
     <a href="" class="nav-link dropdown-toggle" id="navbarUserDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <% if user_signed_in? %>
         <% if current_user.admin? %>
-          <i class="bi-shield-fill admin"></i>
+          <i class="bi-shield-fill text-primary"></i>
         <% else %>
           <i class="bi-person-fill"></i>
         <% end %>
